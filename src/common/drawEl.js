@@ -1,5 +1,3 @@
-import Popover from "../popover/popover";
-
 export default class DrawDOM {
   constructor(popover) {
     this.popover = popover;
@@ -10,25 +8,25 @@ export default class DrawDOM {
 
     const containerFirst = document.createElement('div');
     containerFirst.classList.add('container');
-    const toggleBtnFirst = document.createElement('button');
-    toggleBtnFirst.type = 'button';
-    toggleBtnFirst.classList.add('btn');
-    toggleBtnFirst.textContent = 'Click to toggle popover';
+   this.toggleBtnFirst = document.createElement('button');
+    this.toggleBtnFirst.type = 'button';
+    this.toggleBtnFirst.classList.add('btn','btnFirst');
+    this.toggleBtnFirst.textContent = 'Click to toggle popover';
     const msgForBtnFirst = {title: 'First button', message: 'First button message'}
-    toggleBtnFirst.addEventListener('click', e => this.showPopover(e, msgForBtnFirst))
-    containerFirst.appendChild(toggleBtnFirst);
+    this.toggleBtnFirst.addEventListener('click', e => this.showPopover(e, msgForBtnFirst))
+    containerFirst.appendChild( this.toggleBtnFirst);
 
     document.querySelector('#root').appendChild(containerFirst);
 
     const containerSecond = document.createElement('div');
     containerSecond.classList.add('container');
-    const toggleBtnSecond = document.createElement('button');
-    toggleBtnSecond.type = 'button';
-    toggleBtnSecond.classList.add('btn');
-    toggleBtnSecond.textContent = 'Click to toggle popover';
+    this.toggleBtnSecond = document.createElement('button');
+    this.toggleBtnSecond.type = 'button';
+    this.toggleBtnSecond.classList.add('btn', 'btnSecond');
+    this.toggleBtnSecond.textContent = 'Click to toggle popover';
     const msgForBtnSecond = {title: 'Second button', message: 'Second button message'}
-    toggleBtnSecond.addEventListener('click', e => this.showPopover(e, msgForBtnSecond))
-    containerSecond.appendChild(toggleBtnSecond);
+    this.toggleBtnSecond.addEventListener('click', e => this.showPopover(e, msgForBtnSecond))
+    containerSecond.appendChild(this.toggleBtnSecond);
 
     document.querySelector('#root').appendChild(containerSecond);
 

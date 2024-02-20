@@ -6,11 +6,10 @@ export default class Popover {
   showPopover(element, message) {
     const newPopoverEl = document.createElement('div');
     newPopoverEl.classList.add('popover');
-    const {top,right} = element.getBoundingClientRect();
-    newPopoverEl.style.bottom = `${top - 5}px`;
-    console.log('el',top);
-    console.log(newPopoverEl.getBoundingClientRect().bottom)
+    const {top, right} = element.getBoundingClientRect();
 
+    newPopoverEl.style.top = `${top - element.offsetHeight *1.5 - 10}px`;
+    newPopoverEl.style.left = `${right - element.offsetWidth - 12}px`;
 
     const titlePopoverEl = document.createElement('span');
     titlePopoverEl.classList.add('popoverTitle');
@@ -22,7 +21,7 @@ export default class Popover {
     messageEl.textContent = message.message;
     newPopoverEl.appendChild(messageEl);
 
-    document.body.appendChild(newPopoverEl);
+    document.querySelector('#root').appendChild(newPopoverEl);
 
     const id = performance.now()
     this._popovers.push({
