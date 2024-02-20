@@ -7,7 +7,6 @@
     "build": "webpack --mode production",
     "start": "webpack serve --mode development",
     "e2e": "jest e2e",
-    "test": "jest src/popover/tests",
     "coverage": "jest --coverage",
     "babel": "babel src -d dist",
     "lint": "eslint .",
